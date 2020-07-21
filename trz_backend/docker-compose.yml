@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  db:
+    container_name: trz
+    image: postgres:alpine
+    restart: always
+    env_file: 
+      - .env
+    environment: 
+      POSTGRES_HOST: ${DB_HOST}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - ${DB_PORT}:5432
